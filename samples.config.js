@@ -12,10 +12,10 @@
 
 export default {
   oidc: {
-    clientId: 'xxxx',
-    redirectUri: 'com.okta.xxx:/callback',
-    endSessionRedirectUri: 'com.okta.xxx:/logoutCallback',
-    discoveryUri: 'https://xxx.okta.com/oauth2/default',
+    clientId: '0oa60rd078JkMbf3A357',
+    redirectUri: 'com.okta.tatooine:/callback',
+    endSessionRedirectUri: 'com.okta.tatooine:/logoutCallback',
+    discoveryUri: 'https://tatooine.okta.com/oauth2/default',
     scopes: ["openid", "profile", "offline_access"],
     requireHardwareBackedKeyStore: false,
   }
