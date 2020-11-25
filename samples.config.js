@@ -12,10 +12,10 @@
 
 export default {
   oidc: {
-    clientId: '0oa189ad5pgaS95o84x7',
-    redirectUri: 'com.okta.gobi:/callback',
-    endSessionRedirectUri: 'com.okta.gobi:/logoutCallback',
-    discoveryUri: 'https://gobi.okta.com/oauth2/default',
+    clientId: 'xxxx',
+    redirectUri: 'com.okta.xxx:/callback',
+    endSessionRedirectUri: 'com.okta.xxx:/logoutCallback',
+    discoveryUri: 'https://xxx.okta.com/oauth2/default',
     scopes: ["openid", "profile", "offline_access"],
     requireHardwareBackedKeyStore: false,
   }
