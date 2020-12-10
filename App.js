@@ -35,9 +35,11 @@ import {
 } from '@okta/okta-react-native';
 import configFile from './samples.config';
 import ReactNativeBiometrics from 'react-native-biometrics'
-import TouchID from 'react-native-touch-id';
+// import TouchID from 'react-native-touch-id';
+import FingerprintScanner from 'react-native-fingerprint-scanner';
 
 export default class App extends React.Component {
+
   constructor() {
     super();
     this.state = {
@@ -51,6 +53,7 @@ export default class App extends React.Component {
   }
 
   async componentDidMount() {
+
     let that = this;
     EventEmitter.addListener('signInSuccess', function(e) {
       that.setState({authenticated: true});
@@ -76,6 +79,14 @@ export default class App extends React.Component {
       requireHardwareBackedKeyStore:
         configFile.oidc.requireHardwareBackedKeyStore,
     });
+    
+     var tokens = await refreshTokens();
+
+     if(tokens != null){
+       this.bioMetric()
+     }
+
+
     this.checkAuthentication();
   }
 
@@ -100,7 +111,9 @@ export default class App extends React.Component {
 
     async bioMetric() {
       var that = this
-      TouchID.authenticate('to demo this react-native component')
+      FingerprintScanner.authenticate({
+        description: 'Scan your fingerprint on the device scanner to continue',
+      })
       .then(async (success) => {
         // Success code
         console.log(success)

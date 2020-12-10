@@ -11,16 +11,16 @@
   },
   "dependencies": {
     "@okta/configuration-validation": "^1.0.0",
-    "@okta/okta-react-native": "^1.4.4",
     "detox": "^17.10.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "enzyme-async-helpers": "^0.9.1",
     "events": "^3.2.0",
-    "react": "16.13.1",
-    "react-dom": "^16.13.1",
-    "react-native": "0.63.3",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-native": "^0.60.0",
     "react-native-biometrics": "^2.1.4",
+    "react-native-fingerprint-scanner": "^6.0.0",
     "react-native-touch-id": "^4.4.1"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "eslint": "^6.5.1",
     "jest": "^25.5.4",
     "metro-react-native-babel-preset": "^0.59.0",
-    "react-test-renderer": "16.13.1"
+    "react-test-renderer": "16.8.6"
   },
   "jest": {
     "preset": "react-native",

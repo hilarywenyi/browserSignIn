@@ -45,6 +45,9 @@
 	<array>
 		<string>armv7</string>
 	</array>
+		<key>NSFaceIDUsageDescription</key>
+	<string>$(App_Name) requires FaceID access to allow you quick and secure access.</string>
+
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
