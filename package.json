@@ -20,6 +20,7 @@
     "react-dom": "16.8.6",
     "react-native": "^0.60.0",
     "react-native-biometrics": "^2.1.4",
+    "react-native-fingerprint-scanner": "^6.0.0",
     "react-native-touch-id": "^4.4.1"
   },
   "devDependencies": {
