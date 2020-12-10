@@ -34,7 +34,7 @@ import {
   EventEmitter,
 } from '@okta/okta-react-native';
 import configFile from './samples.config';
-import ReactNativeBiometrics from 'react-native-biometrics'
+import ReactNativeBiometrics from 'react-native-biometrics';
 import TouchID from 'react-native-touch-id';
 
 export default class App extends React.Component {
@@ -52,19 +52,19 @@ export default class App extends React.Component {
 
   async componentDidMount() {
     let that = this;
-    EventEmitter.addListener('signInSuccess', function(e) {
+    EventEmitter.addListener('signInSuccess', function (e) {
       that.setState({authenticated: true});
       that.setContext('Logged in!');
     });
-    EventEmitter.addListener('signOutSuccess', function(e) {
+    EventEmitter.addListener('signOutSuccess', function (e) {
       that.setState({authenticated: false});
       that.setContext('Logged out!');
     });
-    EventEmitter.addListener('onError', function(e) {
+    EventEmitter.addListener('onError', function (e) {
       console.warn(e);
       that.setContext(e.error_message);
     });
-    EventEmitter.addListener('onCancelled', function(e) {
+    EventEmitter.addListener('onCancelled', function (e) {
       console.warn(e);
     });
     await createConfig({
@@ -91,64 +91,63 @@ export default class App extends React.Component {
   }
 
   async checkAuthentication() {
-    return this.state.authenticated
+    return this.state.authenticated;
   }
 
   async login() {
     signIn();
   }
 
-    async bioMetric() {
-      var that = this
-      TouchID.authenticate('to demo this react-native component')
-      .then(async (success) => {
+  async bioMetric() {
+    var that = this;
+    ReactNativeBiometrics.simplePrompt({promptMessage: 'Confirm fingerprint'})
+    .then(async (success) => {
         // Success code
-        console.log(success)
+        console.log(success);
         var tokens = await refreshTokens();
-        if(tokens["access_token"]){
+        if (tokens['access_token']) {
           that.setState({authenticated: true});
           Alert.alert(
             'Success',
-            tokens["access_token"],
+            tokens['access_token'],
             [
               {
                 text: 'Ask me later',
-                onPress: () => console.log('Ask me later pressed')
+                onPress: () => console.log('Ask me later pressed'),
               },
               {
                 text: 'Cancel',
                 onPress: () => console.log('Cancel Pressed'),
-                style: 'cancel'
+                style: 'cancel',
               },
-              { text: 'OK', onPress: () => console.log('OK Pressed') }
+              {text: 'OK', onPress: () => console.log('OK Pressed')},
             ],
-            { cancelable: false }
+            {cancelable: false},
           );
         }
-
       })
-      .catch(error => {
-        console.log(error)
+      .catch((error) => {
+        console.log(error);
         Alert.alert(
           'Error',
           error.message,
           [
             {
               text: 'Ask me later',
-              onPress: () => console.log('Ask me later pressed')
+              onPress: () => console.log('Ask me later pressed'),
             },
             {
               text: 'Cancel',
               onPress: () => console.log('Cancel Pressed'),
-              style: 'cancel'
+              style: 'cancel',
             },
-            { text: 'OK', onPress: () => console.log('OK Pressed') }
+            {text: 'OK', onPress: () => console.log('OK Pressed')},
           ],
-          { cancelable: false }
+          {cancelable: false},
         );
         // Failure code
       });
-    }
+  }
 
   async logout() {
     //signOut
@@ -216,7 +215,7 @@ export default class App extends React.Component {
     }
   }
 
-  setContext = message => {
+  setContext = (message) => {
     this.setState({
       context: message,
     });
@@ -283,13 +282,13 @@ export default class App extends React.Component {
                 />
               )}
               <Button
-                  style={styles.button}
-                  testID="bioMetric"
-                  onPress={async () => {
-                    this.bioMetric();
-                  }}
-                  title="Biometric"
-                />
+                style={styles.button}
+                testID="bioMetric"
+                onPress={async () => {
+                  this.bioMetric();
+                }}
+                title="Biometric"
+              />
             </View>
           </View>
           {this.renderButtons()}

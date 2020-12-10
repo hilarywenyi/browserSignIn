@@ -461,7 +461,7 @@ SPEC CHECKSUMS:
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
   OktaOidc: 0daa496af1b708564bfb0fa353310562ee170369
-  OktaSdkBridgeReactNative: dd44274cf08176eeb06c24f91c57bc8a1b3fbc3e
+  OktaSdkBridgeReactNative: 31a41b89ca3430eefa1282e165a1ce1005f1913d
   OpenSSL-Universal: ff34003318d5e1163e9529b08470708e389ffcdd
   RCTRequired: 48884c74035a0b5b76dbb7a998bd93bcfc5f2047
   RCTTypeSafety: edf4b618033c2f1c5b7bc3d90d8e085ed95ba2ab

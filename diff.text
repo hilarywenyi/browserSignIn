@@ -1,0 +1,98 @@
+13c13
+< import React, {Fragment} from 'react';
+---
+> import React from 'react';
+23d22
+<   Alert,
+30d28
+<   refreshTokens,
+37,38d34
+< import ReactNativeBiometrics from 'react-native-biometrics'
+< import TouchID from 'react-native-touch-id';
+94c90,93
+<     return this.state.authenticated
+---
+>     const result = await isAuthenticated();
+>     if (result.authenticated !== this.state.authenticated) {
+>       this.setState({authenticated: result.authenticated});
+>     }
+101,152d99
+<     async bioMetric() {
+<       var that = this
+<       TouchID.authenticate('to demo this react-native component')
+<       .then(async (success) => {
+<         // Success code
+<         console.log(success)
+<         var tokens = await refreshTokens();
+<         if(tokens["access_token"]){
+<           that.setState({authenticated: true});
+<           Alert.alert(
+<             'Success',
+<             tokens["access_token"],
+<             [
+<               {
+<                 text: 'Ask me later',
+<                 onPress: () => console.log('Ask me later pressed')
+<               },
+<               {
+<                 text: 'Cancel',
+<                 onPress: () => console.log('Cancel Pressed'),
+<                 style: 'cancel'
+<               },
+<               { text: 'OK', onPress: () => console.log('OK Pressed') }
+<             ],
+<             { cancelable: false }
+<           );
+<         }
+< 
+<       })
+<       .catch(error => {
+<         console.log(error)
+<         Alert.alert(
+<           'Error',
+<           error.message,
+<           [
+<             {
+<               text: 'Ask me later',
+<               onPress: () => console.log('Ask me later pressed')
+<             },
+<             {
+<               text: 'Cancel',
+<               onPress: () => console.log('Cancel Pressed'),
+<               style: 'cancel'
+<             },
+<             { text: 'OK', onPress: () => console.log('OK Pressed') }
+<           ],
+<           { cancelable: false }
+<         );
+<         // Failure code
+<       });
+<     }
+< 
+154,155c101
+<     //signOut
+<     this.setState({authenticated: false});
+---
+>     signOut();
+260c206
+<       <Fragment>
+---
+>       <>
+285,292d230
+<               <Button
+<                   style={styles.button}
+<                   testID="bioMetric"
+<                   onPress={async () => {
+<                     this.bioMetric();
+<                   }}
+<                   title="Biometric"
+<                 />
+302c240
+<       </Fragment>
+---
+>       </>
+337c275
+< });
+\ No newline at end of file
+---
+> });
